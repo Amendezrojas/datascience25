@@ -17,7 +17,7 @@ import os
 # Ajustamos el estilo de los gráficos
 sns.set_theme(style="whitegrid", context="talk")
 # Cargamos el csv
-df =pd.read_csv("entrada/plebiscito_chile_2023_400reg.csv")
+df =pd.read_csv("modulo4/entrada/plebiscito_chile_2023_400reg.csv")
 print("Primeras Filas del dataset",df.head(5))
 
 # Creamos carpeta donde guardar las graficas
