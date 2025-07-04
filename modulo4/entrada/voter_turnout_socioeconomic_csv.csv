@@ -1,0 +1,6 @@
+respondent_id,region,age,income_usd,education_level,voter_turnout_pct,trust_government_pct
+R0001,East,51,55667,Tertiary,64.01,73.56
+R0002,Central,55,29857,Secondary,55.5,58.77
+R0003,North,52,49967,Primary,90.67,60.88
+R0004,West,43,47499,Secondary,86.57,38.4
+R0005,West,58,60058,Secondary,51.01,59.58

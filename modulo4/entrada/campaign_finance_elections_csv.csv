@@ -1,0 +1,6 @@
+election_id,region,party,campaign_spending_musd,votes_received_pct,incumbent,voter_turnout_pct
+E0001,North,Right,1.86,9.78,0,66.22
+E0002,South,Right,0.676,16.29,0,64.62
+E0003,South,Left,0.823,59.47,0,67.71
+E0004,North,Left,0.34,52.82,1,81.56
+E0005,East,Center,1.434,46.81,0,70.57

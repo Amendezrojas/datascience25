@@ -1,0 +1,6 @@
+respondent_id,region,corruption_perception_idx,institutional_trust_pct,media_exposure_hrs,age,urban_rural
+C0001,East,4.59,62.72,1.23,34,Urban
+C0002,Central,4.28,45.69,1.04,31,Rural
+C0003,South,3.89,4.17,1.37,39,Urban
+C0004,North,2.87,56.45,0.26,68,Rural
+C0005,South,4.61,34.64,2.31,62,Rural

@@ -1,0 +1,6 @@
+respondent_id,region,media_trust_pct,fake_news_awareness_pct,education_level,social_media_hrs,age
+M0001,South,51.59,65.44,HighSchool,1.19,27
+M0002,West,65.9,14.22,Bachelor,1.18,39
+M0003,North,47.71,66.67,HighSchool,1.06,18
+M0004,Central,80.06,29.41,HighSchool,9.61,36
+M0005,South,83.14,49.33,Bachelor,2.55,49

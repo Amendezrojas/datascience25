@@ -1,0 +1,6 @@
+country,year,women_seats_pct,gdp_per_capita_usd,hdi,voter_turnout_pct,ideology_score
+Argentina,2015,39.13,12520.53,0.744,77.35,-1.85
+Chile,2020,30.31,19007.57,0.81,80.71,-0.61
+Peru,2021,25.32,19608.31,0.698,69.82,-0.28
+Colombia,2015,51.78,8679.19,0.77,59.89,0.49
+Peru,2013,19.43,13075.51,0.785,68.38,-0.79
