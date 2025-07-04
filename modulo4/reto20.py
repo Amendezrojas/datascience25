@@ -7,8 +7,8 @@ import os
 sns.set_theme(style="whitegrid", context="talk")
 
 # Rutas
-archivo = "modulo4/entrada/voter_turnout_socioeconomic.csv"
-carpeta_salida = "modulo4/salida/graficas"
+archivo = ("modulo4/entrada/voter_turnout_socioeconomic.csv")
+carpeta_salida = ("modulo4/salida/graficas")
 os.makedirs(carpeta_salida, exist_ok=True)
 
 # Cargar dataset
