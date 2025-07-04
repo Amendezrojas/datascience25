@@ -6,8 +6,8 @@ import os
 from scipy.stats import zscore
 
 # ---
-## Configuración Inicial
----
+# Configuración Inicial
+# ---
 
 # Configuración visual de Seaborn para un estilo limpio y profesional
 sns.set_theme(style="whitegrid", context="talk", palette="viridis")
@@ -20,8 +20,8 @@ carpeta_base = "modulo4/salida/reto20_mejorado"
 os.makedirs(carpeta_base, exist_ok=True) # Crea la carpeta si no existe
 
 # ---
-## Carga y Limpieza de Datos
----
+# Carga y Limpieza de Datos
+# ---
 
 try:
     df = pd.read_csv(archivo)
@@ -67,8 +67,8 @@ else:
     print("✅ Todos los porcentajes están en el rango válido [0, 100].")
 
 # ---
-## Funciones de Salida Gerencial
----
+# Funciones de Salida Gerencial
+# ---
 
 def resumen_gerencial(titulo, objetivo, conclusion, ruta_grafico):
     """
@@ -94,12 +94,12 @@ def guardar_slide(fig, objetivo, conclusion, nombre_salida):
     print(f"🖼️ Slide guardado: {nombre_salida}")
 
 # ====================================================================
-# 📈 Generación de Gráficos e Información Gerencial
+# Generación de Gráficos e Información Gerencial
 # ====================================================================
 
 # ---
-## Gráfico 1: Boxplot - Distribución y Outliers por Nivel Educativo
----
+# Gráfico 1: Boxplot - Distribución y Outliers por Nivel Educativo
+# ---
 titulo = "🔎 ANÁLISIS 1: Distribución de Participación Electoral por Nivel Educativo"
 objetivo = "Visualizar la distribución, mediana y posibles outliers de la participación electoral para cada nivel educativo, identificando la dispersión."
 conclusion = "Los boxplots muestran diferencias claras en la dispersión y la mediana de la participación entre los grupos educativos. Los niveles más altos de educación (e.g., University Degree) tienden a tener una participación con un rango intercuartílico más estrecho, indicando mayor consistencia, mientras que otros niveles pueden mostrar mayor variabilidad o outliers."
@@ -118,8 +118,8 @@ guardar_slide(fig, objetivo, conclusion, slide)
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 2: Swarmplot - Densidad de Puntos de Confianza por Región
----
+# Gráfico 2: Swarmplot - Densidad de Puntos de Confianza por Región
+# ---
 titulo = "🔎 ANÁLISIS 2: Confianza en el Gobierno por Región (Puntos Individuales)"
 objetivo = "Mostrar la densidad de puntos individuales de confianza en el gobierno para cada región, permitiendo visualizar la concentración y la dispersión real de los datos sin superposición."
 conclusion = "El swarmplot revela que, si bien algunas regiones tienen una distribución de confianza más dispersa, otras muestran clústeres de alta concentración en ciertos rangos. Por ejemplo, la Región 'A' podría tener una mayor agrupación de respuestas de confianza alta, mientras que la Región 'C' podría tener una distribución más uniforme o bimodal."
@@ -138,11 +138,11 @@ guardar_slide(fig, objetivo, conclusion, slide)
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 3: Stripplot - Dispersión Simple de Edad por Nivel Educativo
----
+# Gráfico 3: Stripplot - Dispersión Simple de Edad por Nivel Educativo
+# ---
 titulo = "🔎 ANÁLISIS 3: Dispersión Individual de Edades por Nivel Educativo"
 objetivo = "Visualizar la dispersión de cada observación de edad dentro de cada categoría de nivel educativo para identificar rangos de edad predominantes o brechas."
-conclusion = "Este stripplot permite una vista detallada de la edad de cada individuo por nivel educativo. Se observa que ciertos niveles educativos, como 'High School', abarcan un rango de edad muy amplio, mientras que 'University Degree' podría concentrarse en grupos de edad más maduros. Esto puede influir en futuras estrategias de comunicación segmentada."
+conclusion = "Este stripplot ofrece una vista detallada de la edad de cada individuo por nivel educativo. Se observa que ciertos niveles educativos, como 'High School', abarcan un rango de edad muy amplio, mientras que 'University Degree' podría concentrarse en grupos de edad más maduros. Esto puede influir en futuras estrategias de comunicación segmentada."
 grafico = f"{carpeta_base}/stripplot_edad_educacion.png"
 slide = f"{carpeta_base}/slide_stripplot_edad_educacion.png"
 
@@ -158,8 +158,8 @@ guardar_slide(fig, objetivo, conclusion, slide)
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 4: Countplot - Conteo de Observaciones por Nivel Educativo
----
+# Gráfico 4: Countplot - Conteo de Observaciones por Nivel Educativo
+# ---
 titulo = "🔎 ANÁLISIS 4: Conteo de Observaciones por Nivel Educativo"
 objetivo = "Mostrar la cantidad de individuos (conteo) para cada categoría de nivel educativo, proporcionando una vista rápida de la composición de la muestra."
 conclusion = "El countplot nos indica la distribución de la muestra por nivel educativo. Por ejemplo, si 'High School' es la categoría más numerosa, esto resalta su importancia en la población estudiada y en futuras intervenciones. Es fundamental conocer el tamaño relativo de cada grupo."
@@ -178,8 +178,8 @@ guardar_slide(fig, objetivo, conclusion, slide)
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 5: Heatmap - Correlación entre Variables Numéricas Clave
----
+# Gráfico 5: Heatmap - Correlación entre Variables Numéricas Clave
+# ---
 titulo = "🔎 ANÁLISIS 5: Matriz de Correlación de Variables Numéricas Clave"
 objetivo = "Visualizar la fuerza y dirección de las correlaciones lineales entre las principales variables numéricas para identificar relaciones directas o inversas."
 conclusion = "El heatmap revela qué variables numéricas están más fuertemente correlacionadas. Por ejemplo, una correlación positiva fuerte entre 'age' e 'income_usd' sugeriría que a mayor edad, mayor ingreso. Una correlación débil o cercana a cero indica poca o ninguna relación lineal, lo cual es crucial para el modelado predictivo."
@@ -199,8 +199,8 @@ guardar_slide(fig, objetivo, conclusion, slide)
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 6: Catplot - Participación Electoral por Educación y Región (Boxplots en Facetas)
----
+# Gráfico 6: Catplot - Participación Electoral por Educación y Región (Boxplots en Facetas)
+# ---
 titulo = "🔎 ANÁLISIS 6: Distribución de Participación Electoral por Educación y Región"
 objetivo = "Analizar la distribución de la participación electoral en función del nivel educativo, segmentado por región, para observar patrones en cada combinación."
 conclusion = "El catplot, usando boxplots en facetas, permite una comparación simultánea de la participación electoral en diferentes combinaciones de región y nivel educativo. Se observan variaciones notables: algunas regiones pueden tener una participación más consistente en ciertos niveles educativos, mientras que otras muestran mayor dispersión. Esto indica la necesidad de estrategias regionalizadas."
@@ -220,8 +220,8 @@ guardar_slide(g.fig, objetivo, conclusion, slide) # Pasar g.fig ya que catplot d
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 7: Lmplot - Regresión Lineal de Ingreso vs Participación por Nivel Educativo
----
+# Gráfico 7: Lmplot - Regresión Lineal de Ingreso vs Participación por Nivel Educativo
+# ---
 titulo = "🔎 ANÁLISIS 7: Relación Lineal entre Ingreso y Participación por Nivel Educativo"
 objetivo = "Investigar la existencia y la fuerza de una relación lineal entre el ingreso anual y la participación electoral, diferenciando esta relación por cada nivel educativo."
 conclusion = "El lmplot muestra la tendencia de la participación electoral en función del ingreso, separada por nivel educativo. Las líneas de regresión (y sus bandas de confianza) revelan si el ingreso tiene un efecto similar o diferente en la participación a través de los grupos educativos. Esto es crucial para entender qué grupos demográficos podrían responder de manera diferente a iniciativas económicas o de participación."
@@ -241,8 +241,8 @@ guardar_slide(g.fig, objetivo, conclusion, slide) # Pasar g.fig ya que lmplot de
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 8: Jointplot (KDE) - Distribución Conjunta de Edad y Participación
----
+# Gráfico 8: Jointplot (KDE) - Distribución Conjunta de Edad y Participación
+# ---
 titulo = "🔎 ANÁLISIS 8: Distribución Conjunta y Densidad de Edad vs Participación Electoral"
 objetivo = "Visualizar la densidad de la relación entre la edad de los votantes y su participación electoral, junto con sus distribuciones marginales."
 conclusion = "Este jointplot con KDE (Kernel Density Estimate) ofrece una vista suave de las áreas de alta concentración de datos. Permite identificar las combinaciones de edad y participación más comunes. Por ejemplo, podríamos ver una alta densidad de participantes entre los 40-60 años con una participación entre 70-90%, lo que resalta un segmento clave de la población."
@@ -257,8 +257,8 @@ plt.close(joint.fig) # Cerrar la figura del jointplot
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 9: Barplot - Promedio de Participación por Región (con Barras de Error)
----
+# Gráfico 9: Barplot - Promedio de Participación por Región (con Barras de Error)
+# ---
 titulo = "🔎 ANÁLISIS 9: Promedio de Participación Electoral por Región con Desviación Estándar"
 objetivo = "Identificar las regiones con mayor y menor promedio de participación electoral, mostrando la variabilidad o incertidumbre del promedio con barras de error."
 conclusion = "Las barras de error (desviación estándar) en este barplot ofrecen una mejor idea de la fiabilidad del promedio de participación para cada región. Regiones con barras más cortas sugieren promedios más consistentes, mientras que barras más largas indican mayor variabilidad, lo que puede requerir un análisis más profundo de los factores regionales."
@@ -277,8 +277,8 @@ guardar_slide(fig, objetivo, conclusion, slide)
 resumen_gerencial(titulo, objetivo, conclusion, grafico)
 
 # ---
-## Gráfico 10: Pairplot Mejorado - Relaciones Multivariadas Detalladas
----
+# Gráfico 10: Pairplot Mejorado - Relaciones Multivariadas Detalladas
+# ---
 titulo = "🔎 ANÁLISIS 10: Análisis de Relaciones Multivariadas por Nivel Educativo"
 objetivo = "Explorar exhaustivamente las relaciones bivariadas (dispersión con regresión) y las distribuciones univariadas (KDE) entre un subconjunto de variables clave, diferenciando por nivel educativo."
 conclusion = "Este pairplot mejorado permite una exploración rápida y completa de múltiples relaciones simultáneamente. Podemos ver tendencias de regresión y densidades de distribución. Al usar 'corner=True' se evitan gráficos duplicados, y la diferenciación por 'education_level' revela cómo estas relaciones pueden variar entre los grupos educativos, identificando segmentos clave para futuras acciones."
