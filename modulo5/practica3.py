@@ -106,7 +106,7 @@ def main_analisis_documento():
         ejercicio_num=1,
         contexto="Empresa editorial. Quieren saber si tomar café antes de trabajar aumenta la velocidad de escritura.",
         objetivo="la cafeína tiene un efecto significativo en la velocidad de escritura",
-        hipotesis_nula="Escuchar música instrumental no cambia las puntuaciones de memoria.", # Ajustar aquí para el Ejercicio 1 si se necesita
+        hipotesis_nula="Tomar cafeína no cambia la velocidad de escritura.",
         hipotesis_alternativa="Tomar cafeína aumenta la velocidad de escritura.",
         columnas_csv=['Participante', 'Grupo', 'Velocidad'],
         nombre_variable_ind='Grupo',
@@ -202,5 +202,6 @@ def main_analisis_documento():
     print(f"\n¡Análisis completado! El informe detallado se ha guardado en: '{nombre_archivo_informe}'")
     print("También se han generado archivos CSV con los datos simulados en 'input/' y gráficos boxplot en 'output/'.")
 
-if __name__ == "__main_":
+# ¡CORRECCIÓN AQUÍ! Cambiado de "__main_" a "__main__"
+if __name__ == "__main__":
     main_analisis_documento() # Llama a la función principal
