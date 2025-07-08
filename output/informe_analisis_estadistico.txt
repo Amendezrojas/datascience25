@@ -1,0 +1,204 @@
+# Informe de Análisis Estadístico de Datos Simulados
+
+Este documento presenta el análisis estadístico de seis ejercicios diferentes, cada uno simulando un escenario de investigación y aplicando pruebas de hipótesis. El objetivo es determinar la existencia de efectos significativos entre grupos o condiciones utilizando el método científico y herramientas estadísticas en Python.
+
+Cada sección detalla el contexto del problema, las hipótesis planteadas, las variables involucradas, un resumen descriptivo de los datos simulados, los resultados de la prueba t de Student y una conclusión basada en el valor p.
+
+--- 
+
+### Ejercicio 1: la cafeína tiene un efecto significativo en la velocidad de escritura
+
+**Contexto:** Empresa editorial. Quieren saber si tomar café antes de trabajar aumenta la velocidad de escritura.
+
+**Pregunta de Investigación:** ¿la cafeína tiene un efecto significativo en la velocidad de escritura?
+
+**Hipótesis Nula (H₀):** Tomar cafeína no cambia la velocidad de escritura.
+
+**Hipótesis Alternativa (H₁):** Tomar cafeína aumenta la velocidad de escritura.
+
+**Variables:**
+- **Variable Independiente:** Grupo (Cafeína, SinCafeína)
+- **Variable Dependiente:** Velocidad (palabras/minuto)
+
+**Resumen Descriptivo de los Datos (input/data_ejercicio1.csv):**
+```
+            count     mean       std    min      25%     50%      75%    max
+Grupo                                                                       
+Cafeína     100.0  63.8826  8.507908  42.34  57.3975  63.380  70.7475  85.08
+SinCafeína  100.0  58.6299  7.385883  42.53  53.3350  58.865  63.1325  81.71
+```
+
+**Análisis Estadístico (Prueba t de Student para Muestras Independientes):**
+- **Estadístico T:** 4.6622
+- **Valor P:** 0.0000
+- **Nivel de Significación (α):** 0.05
+
+**Conclusión:** Se **rechaza la hipótesis nula** (p < 0.05). Existe una diferencia estadísticamente significativa en 'Velocidad (palabras/minuto)' entre el grupo 'Cafeína' y el grupo 'SinCafeína'. Esto sugiere que la cafeína tiene un efecto significativo en la velocidad de escritura.
+
+*Visualización en: output/boxplot_ejercicio1.png*
+
+---
+### Ejercicio 2: el ejercicio físico ligero mejora la memoria a corto plazo en sus empleados
+
+**Contexto:** Firma de bienestar corporativo. Un cliente quiere saber si una pausa de ejercicio físico ligero mejora la memoria a corto plazo en sus empleados.
+
+**Pregunta de Investigación:** ¿el ejercicio físico ligero mejora la memoria a corto plazo en sus empleados?
+
+**Hipótesis Nula (H₀):** El ejercicio físico ligero no cambia las puntuaciones de memoria a corto plazo.
+
+**Hipótesis Alternativa (H₁):** El ejercicio físico ligero mejora las puntuaciones de memoria a corto plazo.
+
+**Variables:**
+- **Variable Independiente:** Condición (Ejercicio, Reposo)
+- **Variable Dependiente:** PuntajeMemoria (0-100)
+
+**Resumen Descriptivo de los Datos (input/data_ejercicio2.csv):**
+```
+           count      mean        std    min     25%     50%      75%     max
+Condición                                                                    
+Ejercicio   80.0  78.51400  11.490387  48.56  72.165  78.475  86.0975  102.23
+Reposo      80.0  71.86325  11.011176  48.97  63.775  72.770  77.6825  101.56
+```
+
+**Análisis Estadístico (Prueba t de Student para Muestras Independientes):**
+- **Estadístico T:** 3.7378
+- **Valor P:** 0.0003
+- **Nivel de Significación (α):** 0.05
+
+**Conclusión:** Se **rechaza la hipótesis nula** (p < 0.05). Existe una diferencia estadísticamente significativa en 'PuntajeMemoria (0-100)' entre el grupo 'Ejercicio' y el grupo 'Reposo'. Esto sugiere que el ejercicio físico ligero mejora la memoria a corto plazo en sus empleados.
+
+*Visualización en: output/boxplot_ejercicio2.png*
+
+---
+### Ejercicio 3: la música instrumental de fondo mejora la concentración en tareas lógicas (reduce el tiempo de resolución)
+
+**Contexto:** Una app de productividad solicita un estudio sobre si la música instrumental de fondo mejora la concentración en tareas lógicas.
+
+**Pregunta de Investigación:** ¿la música instrumental de fondo mejora la concentración en tareas lógicas (reduce el tiempo de resolución)?
+
+**Hipótesis Nula (H₀):** Escuchar música instrumental no cambia el tiempo de resolución de un test lógico.
+
+**Hipótesis Alternativa (H₁):** Escuchar música instrumental reduce el tiempo de resolución de un test lógico.
+
+**Variables:**
+- **Variable Independiente:** Grupo (Música, Silencio)
+- **Variable Dependiente:** TiempoTest (segundos)
+
+**Resumen Descriptivo de los Datos (input/data_ejercicio3.csv):**
+```
+          count        mean        std     min       25%      50%       75%     max
+Grupo                                                                              
+Música    120.0  149.450583  29.771258   59.23  130.9875  147.025  167.6500  217.99
+Silencio  120.0  173.640750  30.673987  104.12  156.1450  171.515  191.9675  251.40
+```
+
+**Análisis Estadístico (Prueba t de Student para Muestras Independientes):**
+- **Estadístico T:** -6.1992
+- **Valor P:** 0.0000
+- **Nivel de Significación (α):** 0.05
+
+**Conclusión:** Se **rechaza la hipótesis nula** (p < 0.05). Existe una diferencia estadísticamente significativa en 'TiempoTest (segundos)' entre el grupo 'Música' y el grupo 'Silencio'. Esto sugiere que la música instrumental de fondo mejora la concentración en tareas lógicas (reduce el tiempo de resolución).
+
+*Visualización en: output/boxplot_ejercicio3.png*
+
+---
+### Ejercicio 4: una versión de la app (A o B) permite completar la compra más rápido
+
+**Contexto:** Empresa de e-commerce prueba dos versiones de su app (A y B). Desean saber si una versión permite completar la compra más rápido.
+
+**Pregunta de Investigación:** ¿una versión de la app (A o B) permite completar la compra más rápido?
+
+**Hipótesis Nula (H₀):** El diseño de la app no afecta la rapidez de compra (los tiempos medios son iguales).
+
+**Hipótesis Alternativa (H₁):** Existe una diferencia significativa en la rapidez de compra entre las versiones A y B de la app.
+
+**Variables:**
+- **Variable Independiente:** VersiónApp (A, B)
+- **Variable Dependiente:** TiempoCompra (segundos)
+
+**Resumen Descriptivo de los Datos (input/data_ejercicio4.csv):**
+```
+            count       mean        std    min      25%     50%      75%     max
+VersiónApp                                                                      
+A           150.0  69.229800  15.400662  23.89  59.1650  70.105  78.8025  113.51
+B           150.0  74.101867  15.170996  35.10  64.4325  73.720  83.7650  116.93
+```
+
+**Análisis Estadístico (Prueba t de Student para Muestras Independientes):**
+- **Estadístico T:** -2.7602
+- **Valor P:** 0.0061
+- **Nivel de Significación (α):** 0.05
+
+**Conclusión:** Se **rechaza la hipótesis nula** (p < 0.05). Existe una diferencia estadísticamente significativa en 'TiempoCompra (segundos)' entre el grupo 'A' y el grupo 'B'. Esto sugiere que una versión de la app (A o B) permite completar la compra más rápido.
+
+*Visualización en: output/boxplot_ejercicio4.png*
+
+---
+### Ejercicio 5: ofrecer una colación saludable antes del examen mejora el rendimiento académico
+
+**Contexto:** Una escuela evalúa si ofrecer una colación saludable antes del examen mejora el rendimiento de sus alumnos.
+
+**Pregunta de Investigación:** ¿ofrecer una colación saludable antes del examen mejora el rendimiento académico?
+
+**Hipótesis Nula (H₀):** Ofrecer una colación saludable no cambia las calificaciones de los alumnos.
+
+**Hipótesis Alternativa (H₁):** Ofrecer una colación saludable mejora las calificaciones de los alumnos.
+
+**Variables:**
+- **Variable Independiente:** Grupo (Colación, SinColación)
+- **Variable Dependiente:** Calificación (0-100)
+
+**Resumen Descriptivo de los Datos (input/data_ejercicio5.csv):**
+```
+             count     mean        std    min      25%     50%      75%     max
+Grupo                                                                          
+Colación     100.0  76.6080   9.356290  52.03  71.4275  76.065  81.5850  100.48
+SinColación  100.0  70.7543  10.063312  45.73  64.7475  71.360  77.8525   99.94
+```
+
+**Análisis Estadístico (Prueba t de Student para Muestras Independientes):**
+- **Estadístico T:** 4.2601
+- **Valor P:** 0.0000
+- **Nivel de Significación (α):** 0.05
+
+**Conclusión:** Se **rechaza la hipótesis nula** (p < 0.05). Existe una diferencia estadísticamente significativa en 'Calificación (0-100)' entre el grupo 'Colación' y el grupo 'SinColación'. Esto sugiere que ofrecer una colación saludable antes del examen mejora el rendimiento académico.
+
+*Visualización en: output/boxplot_ejercicio5.png*
+
+---
+### Ejercicio 6: los cursos de comunicación efectiva aumentan las ventas mensuales de los empleados
+
+**Contexto:** Una empresa capacita a su personal en comunicación efectiva. Se desea comprobar si los vendedores capacitados logran más ventas.
+
+**Pregunta de Investigación:** ¿los cursos de comunicación efectiva aumentan las ventas mensuales de los empleados?
+
+**Hipótesis Nula (H₀):** La formación en comunicación no cambia el promedio de ventas mensuales.
+
+**Hipótesis Alternativa (H₁):** La formación en comunicación aumenta el promedio de ventas mensuales.
+
+**Variables:**
+- **Variable Independiente:** Formación (Si, NO)
+- **Variable Dependiente:** VentasMensuales
+
+**Resumen Descriptivo de los Datos (input/data_ejercicio6.csv):**
+```
+           count        mean        std    min     25%      50%       75%     max
+Formación                                                                        
+NO          70.0   99.334143  23.554256  49.82   87.47   97.135  110.9400  151.74
+Si          70.0  118.423000  23.921545  52.64  106.21  117.005  132.2375  174.03
+```
+
+**Análisis Estadístico (Prueba t de Student para Muestras Independientes):**
+- **Estadístico T:** 4.7573
+- **Valor P:** 0.0000
+- **Nivel de Significación (α):** 0.05
+
+**Conclusión:** Se **rechaza la hipótesis nula** (p < 0.05). Existe una diferencia estadísticamente significativa en 'VentasMensuales' entre el grupo 'Si' y el grupo 'NO'. Esto sugiere que los cursos de comunicación efectiva aumentan las ventas mensuales de los empleados.
+
+*Visualización en: output/boxplot_ejercicio6.png*
+
+---
+
+## Conclusión General
+
+Este análisis ha permitido aplicar principios de estadística inferencial a diversos escenarios simulados. A través de la formulación de hipótesis, la simulación de datos, el cálculo de estadísticas descriptivas y la realización de pruebas t de Student, se han extraído conclusiones sobre la significancia de los efectos observados. Los resultados, junto con las visualizaciones generadas, ofrecen una base sólida para la toma de decisiones en cada uno de los contextos presentados. Es crucial recordar que, aunque los datos son simulados, la metodología empleada es replicable en situaciones con datos reales.
