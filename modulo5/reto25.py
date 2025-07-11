@@ -337,7 +337,7 @@ np.random.seed(42) # Para reproducibilidad
 num_mediciones_r5 = 200
 mediciones_altura_simuladas_r5 = np.random.normal(loc=media_altura_r5, scale=sigma_altura_r5, size=num_mediciones_r5)
 
-print("\nPrimeras 10 mediciones de altura simuladas (Reto 5):")
+print("\nPrimeros 10 mediciones de altura simuladas (Reto 5):")
 print(mediciones_altura_simuladas_r5[:10].round(2))
 
 plt.figure(figsize=(10, 6))
@@ -370,7 +370,7 @@ prob_entre_1_4_y_1_6_r5 = norm.cdf(limite_superior_r5, loc=media_altura_r5, scal
                        norm.cdf(limite_inferior_r5, loc=media_altura_r5, scale=sigma_altura_r5)
 print(f"\nReto 5: Probabilidad de que una medición esté entre {limite_inferior_r5} y {limite_superior_r5} m: {prob_entre_1_4_y_1_6_r5:.4f}")
 
-# 5. Sombrear el área correspondiente en la curva
+# 5. Sombrear el área correspondiente en la curva (con porcentaje en el título)
 plt.figure(figsize=(10, 6))
 plt.plot(x_pdf_r5, pdf_teorica_r5, color='purple', label=f'PDF Normal (μ={media_altura_r5} m, σ={sigma_altura_r5} m)')
 x_sombreado_r5 = np.linspace(limite_inferior_r5, limite_superior_r5, 100)
@@ -379,7 +379,7 @@ plt.fill_between(x_sombreado_r5, 0, norm.pdf(x_sombreado_r5, loc=media_altura_r5
 plt.axvline(x=limite_inferior_r5, color='blue', linestyle=':', label=f'{limite_inferior_r5} m')
 plt.axvline(x=limite_superior_r5, color='blue', linestyle=':', label=f'{limite_superior_r5} m')
 
-plt.title(f'Reto 5: Probabilidad de Altura entre {limite_inferior_r5} y {limite_superior_r5} m')
+plt.title(f'Reto 5: Probabilidad de Altura entre {limite_inferior_r5} y {limite_superior_r5} m ({prob_entre_1_4_y_1_6_r5:.2%})')
 plt.xlabel('Altura (metros)')
 plt.ylabel('Densidad de Probabilidad')
 plt.grid(True, linestyle='--', alpha=0.7)
@@ -387,20 +387,56 @@ plt.legend()
 plt.savefig(os.path.join(output_dir_r5, 'reto5_prob_altura_rango.png')) # Guardar figura
 plt.show()
 
+# --- Nuevo gráfico combinado para Reto 5 ---
+plt.figure(figsize=(12, 7))
+plt.plot(x_pdf_r5, pdf_teorica_r5, color='purple', linewidth=2, label=f'PDF Normal (μ={media_altura_r5} m, σ={sigma_altura_r5} m)')
+
+# Línea de la media
+plt.axvline(x=media_altura_r5, color='gray', linestyle='--', label=f'Media (μ = {media_altura_r5} m)')
+
+# Líneas de los límites y área sombreada
+plt.axvline(x=limite_inferior_r5, color='blue', linestyle=':', label=f'Límite Inferior ({limite_inferior_r5} m)')
+plt.axvline(x=limite_superior_r5, color='blue', linestyle=':', label=f'Límite Superior ({limite_superior_r5} m)')
+plt.fill_between(x_sombreado_r5, 0, norm.pdf(x_sombreado_r5, loc=media_altura_r5, scale=sigma_altura_r5),
+                 color='orange', alpha=0.5, label=f'Área de Probabilidad ({prob_entre_1_4_y_1_6_r5:.2%})')
+
+# Añadir el porcentaje de probabilidad en el gráfico
+plt.text(media_altura_r5, norm.pdf(media_altura_r5, loc=media_altura_r5, scale=sigma_altura_r5) * 0.5,
+         f'{prob_entre_1_4_y_1_6_r5:.2%}', horizontalalignment='center', color='darkgreen', fontsize=12,
+         bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', boxstyle='round,pad=0.5'))
+
+plt.title('Reto 5: Análisis Completo de la Altura de Colados de Concreto')
+plt.xlabel('Altura (metros)')
+plt.ylabel('Densidad de Probabilidad')
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.legend()
+plt.savefig(os.path.join(output_dir_r5, 'reto5_analisis_completo.png')) # Guardar figura
+plt.show()
+
 # 6. Evaluar si el proceso es lo suficientemente preciso
 print("\nReto 5: Evaluación de la Precisión del Proceso:")
-if prob_entre_1_4_y_1_6_r5 > 0.60:
-    print(f"La probabilidad de que una medición esté entre {limite_inferior_r5} y {limite_superior_r5} m es del {prob_entre_1_4_y_1_6_r5:.2%}.")
+print(f"La probabilidad de que una medición esté entre {limite_inferior_r5} y {limite_superior_r5} m es del {prob_entre_1_4_y_1_6_r5:.2%}.")
+
+if prob_entre_1_4_y_1_6_r5 > 0.60: # Umbral de ejemplo para "preciso"
     print("Esto indica que una gran proporción de los colados está dentro del rango deseado. El proceso tiene")
     print("una precisión aceptable para el objetivo de estar cerca de 1.5m, si la tolerancia de +/- 0.1m es adecuada.")
     print("La mayoría de los valores caen dentro de este rango, lo cual es positivo.")
 else:
-    print(f"La probabilidad de que una medición esté entre {limite_inferior_r5} y {limite_superior_r5} m es del {prob_entre_1_4_y_1_6_r5:.2%}.")
     print("Esto sugiere que el proceso podría no ser lo suficientemente preciso para mantener consistentemente")
     print("la altura de colado dentro de un rango tan estrecho (1.4m a 1.6m) alrededor de 1.5m.")
     print("Se deberían revisar los equipos de medición, la capacitación del personal o los procedimientos de colado")
     print("para mejorar la precisión y reducir la variabilidad (desviación estándar) y así aumentar la proporción")
     print("de colados dentro del rango objetivo.")
+
+# --- Tabla de Resultados para Reto 5 ---
+resultados_r5 = pd.DataFrame({
+    'Métrica': ['Media (μ)', 'Desviación Estándar (σ)', 'Rango de Interés', 'Probabilidad Calculada', 'Evaluación de Precisión'],
+    'Valor': [f'{media_altura_r5} m', f'{sigma_altura_r5} m', f'{limite_inferior_r5}m a {limite_superior_r5}m',
+              f'{prob_entre_1_4_y_1_6_r5:.2%}',
+              'No es suficientemente preciso para un rango estricto' if prob_entre_1_4_y_1_6_r5 <= 0.60 else 'Precisión aceptable']
+})
+print("\nReto 5: Tabla de Resultados Clave:")
+print(resultados_r5.to_string(index=False)) # to_string para asegurar que se imprima todo el DataFrame
 print("--- FIN RETO 5 ---")
 
 # --- RETO 6: Tiempo de Fraguado de Cemento (Comparación de dos marcas) 🧪 ---
